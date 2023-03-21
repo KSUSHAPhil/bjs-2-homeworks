@@ -9,21 +9,25 @@ function solveEquation(a, b, c) {
    }
    else if (d == 0) {
     arr[0] = -b / (2 * a);
-    }
+   }
   return arr;
 }
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
     let per = percent / 1200;
     if (isNaN(per)) {
-    return false;
+        return false;
     }
 
     if (isNaN(contribution)) {
-    return false;
+        return false;
     }
     if (isNaN(amount)) {
-    return false;
+        return false;
+    }
+
+    if (isNaN(countMonths)) {
+        return false;
     }
 
     let creditBody = amount - contribution;
