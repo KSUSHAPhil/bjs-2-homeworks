@@ -27,48 +27,48 @@ class PrintEditionItem {
     get state () {
         return this._state;
     }
+}
 
-    class Magazine extends PrintEditionItem {
-        constructor (...args) {
-            super(...args);
-            this.type = "magazine";
-        }
+class Magazine extends PrintEditionItem {
+    constructor (...args) {
+        super(...args);
+        this.type = "magazine";
     }
+}
 
-    class Book extends PrintEditionItem{
-        constructor (author,...args) {
-            super(...args);
-            this.type = "book";
-            this.author = author;
-        }
+class Book extends PrintEditionItem{
+    constructor (author,...args) {
+        super(...args);
+        this.type = "book";
+        this.author = author;
     }
+}
 
-    class NovelBook extends Book{
-        constructor (...args) {
-            super(...args);
-            this.type = "novel";
-        }
+class NovelBook extends Book{
+    constructor (...args) {
+        super(...args);
+        this.type = "novel";
     }
+}
 
-    class FantasticBook extends Book{
-        constructor (...args) {
-            super(...args);
-            this.type = "fantastic";
-        }
+class FantasticBook extends Book{
+    constructor (...args) {
+        super(...args);
+        this.type = "fantastic";
     }
+}
 
-    class DetectiveBook extends Book{
-        constructor (...args) {
-            super(...args);
-            this.type = "detective";
-        }
+class DetectiveBook extends Book{
+    constructor (...args) {
+        super(...args);
+        this.type = "detective";
     }
+}
 
-    class Library{
-        constructor (name) {
-            this.name = name;
-            this.books = [];
-        }
+class Library{
+    constructor (name) {
+        this.name = name;
+        this.books = [];
     }
 
     addBook(book) {
