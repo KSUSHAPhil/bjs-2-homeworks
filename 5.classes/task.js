@@ -1,3 +1,5 @@
+'use strict'
+
 class PrintEditionItem {
     constructor(name, releaseDate, pagesCount) {
         this.name = name;
@@ -8,7 +10,7 @@ class PrintEditionItem {
     }
 
     fix(){
-        this.state *= 1.5;
+        this.state = Math.round(this.state * 1.5);
     }
 
     set state(currentState) {
@@ -27,37 +29,37 @@ class PrintEditionItem {
     }
 
     class Magazine extends PrintEditionItem {
-        constructor (name, releaseDate, pagesCount) {
-            super(name, releaseDate, pagesCount)
+        constructor (...args) {
+            super(...args);
             this.type = "magazine";
         }
     }
 
     class Book extends PrintEditionItem{
-        constructor (name, releaseDate, pagesCount) {
-            super(name, releaseDate, pagesCount)
+        constructor (author,...args) {
+            super(...args);
             this.type = "book";
             this.author = author;
         }
     }
 
     class NovelBook extends Book{
-        constructor (name, releaseDate, pagesCount) {
-            super(name, releaseDate, pagesCount)
+        constructor (...args) {
+            super(...args);
             this.type = "novel";
         }
     }
 
     class FantasticBook extends Book{
-        constructor (name, releaseDate, pagesCount) {
-            super(name, releaseDate, pagesCount)
+        constructor (...args) {
+            super(...args);
             this.type = "fantastic";
         }
     }
 
     class DetectiveBook extends Book{
-        constructor (name, releaseDate, pagesCount) {
-            super(name, releaseDate, pagesCount)
+        constructor (...args) {
+            super(...args);
             this.type = "detective";
         }
     }
