@@ -7,7 +7,6 @@ function cachingDecoratorNew(func) {
     let cacheObject = cache.find((cacheObject) => cacheObject.hash === hash);
 
     if (cacheObject) {
-        //console.log("Из кэша: " + cacheObject.result);
         return "Из кэша: " + cacheObject.result;
     }
 
@@ -24,5 +23,27 @@ function cachingDecoratorNew(func) {
 
 //Задача № 2
 function debounceDecoratorNew(func, delay) {
-  
+  let timeout = null;
+  wrapper.count = 0;
+  wrapper.allCount = 0;
+
+  function wrapper(...args) {
+    if (timeout === null) {
+        func(...args);
+        wrapper.count++;
+    }
+
+    if (timeout) {
+        clearTimeout(timeout);
+    }
+
+    timeout = setTimeout(() => {
+        timeout = true;
+        func(...args);
+        wrapper.count++;
+    }, delay);
+    wrapper.allCount++;
+  }
+
+  return wrapper;
 }
